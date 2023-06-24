@@ -10,9 +10,10 @@ pipeline {
         stage('Build and Test'){
             steps {
                 sh 'docker build . -t sandima/springnodejs:v5' 
+                sh 'docker images'
             }
         }
-        stage('Login and Push Image'){
+        stage('Push Image'){
             steps {
                 echo 'logging in to docker hub and pushing image..'
                     sh "docker push sandima/springnodejs:v5"
